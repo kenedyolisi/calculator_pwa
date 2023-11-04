@@ -1,5 +1,6 @@
 import { Container, Row } from "react-bootstrap";
 import { DigitButton } from "./digit_button";
+import { OperatorButton } from "./operator_button";
 
 export function App() {
   return (
@@ -26,23 +27,15 @@ export function App() {
             <DigitButton value={4} />
             <DigitButton value={5} />
             <DigitButton value={6} />
-            <button type="button" className="btn col m-1 text-bg-light">
-              ÷
-            </button>
-            <button type="button" className="btn col m-1 text-bg-light">
-              ×
-            </button>
+            <OperatorButton value="÷" />
+            <OperatorButton value="×" />
           </Row>
           <Row className="">
             <DigitButton value={3} />
             <DigitButton value={2} />
             <DigitButton value={1} />
-            <button type="button" className="btn col m-1 text-bg-light">
-              +
-            </button>
-            <button type="button" className="btn col m-1 text-bg-light">
-              -
-            </button>
+            <OperatorButton value="+" />
+            <OperatorButton value="-" />
           </Row>
           <Row className="">
             <button type="button" className="btn col-2 m-1 text-bg-light">
