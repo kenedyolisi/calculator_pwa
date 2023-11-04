@@ -6,10 +6,10 @@ export function App() {
   return (
     <main>
       <Container className="app text-center bg-body-secondary rounded-3">
-        <Row></Row>
-        <Row className="justify-content-end bg-body-tertiary m-2 p-2 rounded-2">
-          0
-        </Row>
+        <div className="display text-bg-info m-2 p-2 rounded-2">
+          <div className="display-input"></div>
+          <div className="display-result">0</div>
+        </div>
         <div className="m-2 p-2">
           <Row className="">
             <DigitButton value={7} />
@@ -54,5 +54,3 @@ export function App() {
     </main>
   );
 }
-
-
