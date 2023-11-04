@@ -16,13 +16,8 @@ export function App() {
             <DigitButton value={7} />
             <DigitButton value={8} />
             <DigitButton value={9} />
-
-            <button type="button" className="btn col m-1 text-bg-secondary">
-              (
-            </button>
-            <button type="button" className="btn col m-1 text-bg-secondary">
-              )
-            </button>
+            <OperatorButton value="(" />
+            <OperatorButton value=")" />
           </Row>
           <Row className="">
             <DigitButton value={4} />
@@ -39,13 +34,11 @@ export function App() {
             <OperatorButton value="-" />
           </Row>
           <Row className="">
-            <button type="button" className="btn col-2 m-1 text-bg-light">
-              .
-            </button>
+            <DigitButton value="."/>
             <DigitButton value={0} />
-            <button type="button" className="btn col-2 m-1 text-bg-light">
-              ∓
-            </button>
+            <DigitButton value="∓"/>
+
+
             <ResultButton />
           </Row>
         </div>
