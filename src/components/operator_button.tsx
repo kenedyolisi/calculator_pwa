@@ -1,7 +1,9 @@
+import { Button } from "react-bootstrap";
+
 export function OperatorButton({ value }: { value: string }) {
   return (
-    <button className="btn col m-1 text-bg-secondary" type="button">
+    <Button className="btn-secondary col m-1" type="button">
       {value}
-    </button>
+    </Button>
   );
 }
