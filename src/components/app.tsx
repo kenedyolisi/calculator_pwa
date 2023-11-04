@@ -1,6 +1,7 @@
 import { Container, Row } from "react-bootstrap";
 import { DigitButton } from "./digit_button";
 import { OperatorButton } from "./operator_button";
+import { ResultButton } from "./result_button";
 
 export function App() {
   return (
@@ -45,9 +46,7 @@ export function App() {
             <button type="button" className="btn col-2 m-1 text-bg-light">
               ∓
             </button>
-            <button type="button" className="btn col m-1 text-bg-success">
-              =
-            </button>
+            <ResultButton />
           </Row>
         </div>
       </Container>
