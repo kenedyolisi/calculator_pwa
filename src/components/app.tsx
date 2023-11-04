@@ -1,7 +1,7 @@
 import { Container, Row } from "react-bootstrap";
 import { DigitButton } from "./digit_button";
 
-export default function App() {
+export function App() {
   return (
     <main>
       <Container className="app text-center bg-body-secondary rounded-3">
