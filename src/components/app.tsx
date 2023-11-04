@@ -15,6 +15,12 @@ export function App() {
     setInput(input + event.target?.value);
   }
 
+  function handleDeleteClick() {
+    if (input) {
+      setInput(input.slice(0, -1));
+    }
+  }
+
   return (
     <main>
       <Container className="app text-center bg-body-secondary rounded-3">
@@ -27,8 +33,8 @@ export function App() {
             <Placeholder colspan={2} />
             <Placeholder colspan={2} />
             <Placeholder colspan={2} />
-            <DeleteButton />
             <ClearButton />
+            <DeleteButton handleClick={handleDeleteClick} />
           </Row>
           <Row className="">
             <DigitButton value={7} handleClick={handleNumberClick} />
