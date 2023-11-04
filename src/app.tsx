@@ -1,35 +1,20 @@
 import { Container, Row } from "react-bootstrap";
+import { DigitButton } from "./components/digit_button";
 
 export default function App() {
   return (
     <main>
       <Container className="app text-center bg-body-secondary rounded-3">
+        <Row></Row>
         <Row className="justify-content-end bg-body-tertiary m-2 p-2 rounded-2">
           0
         </Row>
         <div className="m-2 p-2">
           <Row className="">
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={7}
-            >
-              7
-            </button>
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={8}
-            >
-              8
-            </button>
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={9}
-            >
-              9
-            </button>
+            <DigitButton value={7} />
+            <DigitButton value={8} />
+            <DigitButton value={9} />
+
             <button type="button" className="btn col m-1 text-bg-secondary">
               (
             </button>
@@ -38,27 +23,9 @@ export default function App() {
             </button>
           </Row>
           <Row className="">
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={4}
-            >
-              4
-            </button>
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={5}
-            >
-              5
-            </button>
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={6}
-            >
-              6
-            </button>
+            <DigitButton value={4} />
+            <DigitButton value={5} />
+            <DigitButton value={6} />
             <button type="button" className="btn col m-1 text-bg-light">
               ÷
             </button>
@@ -67,27 +34,9 @@ export default function App() {
             </button>
           </Row>
           <Row className="">
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={1}
-            >
-              1
-            </button>
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={2}
-            >
-              2
-            </button>
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={3}
-            >
-              3
-            </button>
+            <DigitButton value={3} />
+            <DigitButton value={2} />
+            <DigitButton value={1} />
             <button type="button" className="btn col m-1 text-bg-light">
               +
             </button>
@@ -99,13 +48,7 @@ export default function App() {
             <button type="button" className="btn col-2 m-1 text-bg-light">
               .
             </button>
-            <button
-              type="button"
-              className="btn col-2 m-1 text-bg-light"
-              data-value={0}
-            >
-              0
-            </button>
+            <DigitButton value={0} />
             <button type="button" className="btn col-2 m-1 text-bg-light">
               ∓
             </button>
@@ -118,3 +61,5 @@ export default function App() {
     </main>
   );
 }
+
+
