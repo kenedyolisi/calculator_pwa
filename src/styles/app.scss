@@ -4,3 +4,16 @@ main {
   min-width: 320px;
   height: 100vh;
 }
+
+.display {
+  display: flex;
+  flex-direction: column;
+  place-items: end;
+
+  &-input {
+    min-height: 24px;
+  }
+
+  &-result {
+  }
+}
