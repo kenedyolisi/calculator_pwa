@@ -3,6 +3,7 @@ import { DigitButton } from "./digit_button";
 import { OperatorButton } from "./operator_button";
 import { ResultButton } from "./result_button";
 import { Placeholder } from "./placeholder";
+import { ClearButton } from "./clear_button";
 
 export function App() {
   return (
@@ -18,7 +19,7 @@ export function App() {
             <Placeholder colspan={2} />
             <Placeholder colspan={2} />
             <Button className="btn-danger col m-1">DEL</Button>
-            <Button className="btn-danger col m-1">AC</Button>
+            <ClearButton />
           </Row>
           <Row className="">
             <DigitButton value={7} />
