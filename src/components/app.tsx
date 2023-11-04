@@ -11,6 +11,10 @@ export function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(0);
 
+  function handleNumberClick(event: Event) {
+    setInput(input + event.target?.value);
+  }
+
   return (
     <main>
       <Container className="app text-center bg-body-secondary rounded-3">
@@ -27,29 +31,29 @@ export function App() {
             <ClearButton />
           </Row>
           <Row className="">
-            <DigitButton value={7} />
-            <DigitButton value={8} />
-            <DigitButton value={9} />
+            <DigitButton value={7} handleClick={handleNumberClick} />
+            <DigitButton value={8} handleClick={handleNumberClick} />
+            <DigitButton value={9} handleClick={handleNumberClick} />
             <OperatorButton value="(" />
             <OperatorButton value=")" />
           </Row>
           <Row className="">
-            <DigitButton value={4} />
-            <DigitButton value={5} />
-            <DigitButton value={6} />
+            <DigitButton value={4} handleClick={handleNumberClick} />
+            <DigitButton value={5} handleClick={handleNumberClick} />
+            <DigitButton value={6} handleClick={handleNumberClick} />
             <OperatorButton value="÷" />
             <OperatorButton value="×" />
           </Row>
           <Row className="">
-            <DigitButton value={3} />
-            <DigitButton value={2} />
-            <DigitButton value={1} />
+            <DigitButton value={3} handleClick={handleNumberClick} />
+            <DigitButton value={2} handleClick={handleNumberClick} />
+            <DigitButton value={1} handleClick={handleNumberClick} />
             <OperatorButton value="+" />
             <OperatorButton value="-" />
           </Row>
           <Row className="">
             <DigitButton value="." />
-            <DigitButton value={0} />
+            <DigitButton value={0} handleClick={handleNumberClick} />
             <DigitButton value="∓" />
 
             <ResultButton />
