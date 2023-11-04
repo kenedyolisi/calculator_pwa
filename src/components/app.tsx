@@ -21,6 +21,12 @@ export function App() {
     }
   }
 
+  function handleClearClick() {
+    if (input) {
+      setInput("");
+    }
+  }
+
   return (
     <main>
       <Container className="app text-center bg-body-secondary rounded-3">
@@ -33,8 +39,8 @@ export function App() {
             <Placeholder colspan={2} />
             <Placeholder colspan={2} />
             <Placeholder colspan={2} />
-            <ClearButton />
             <DeleteButton handleClick={handleDeleteClick} />
+            <ClearButton handleClick={handleClearClick} />
           </Row>
           <Row className="">
             <DigitButton value={7} handleClick={handleNumberClick} />

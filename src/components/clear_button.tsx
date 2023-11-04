@@ -1,5 +1,13 @@
 import { Button } from "react-bootstrap";
 
-export function ClearButton() {
-  return <Button className="btn-danger col m-1">AC</Button>;
+interface ClearButtonProps {
+  handleClick: () => void;
+}
+
+export function ClearButton({ handleClick }: ClearButtonProps) {
+  return (
+    <Button className="btn-danger col m-1" onClick={handleClick}>
+      AC
+    </Button>
+  );
 }
