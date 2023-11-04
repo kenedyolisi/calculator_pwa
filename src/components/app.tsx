@@ -5,14 +5,18 @@ import { ResultButton } from "./result_button";
 import { Placeholder } from "./placeholder";
 import { ClearButton } from "./clear_button";
 import { DeleteButton } from "./delete_button";
+import { useState } from "react";
 
 export function App() {
+  const [input, setInput] = useState("");
+  const [result, setResult] = useState(0);
+
   return (
     <main>
       <Container className="app text-center bg-body-secondary rounded-3">
         <div className="display text-bg-info m-2 p-2 rounded-2">
-          <div className="display-input"></div>
-          <div className="display-result">0</div>
+          <div className="display-input">{input}</div>
+          <div className="display-result">{result}</div>
         </div>
         <div className="m-2 p-2">
           <Row className="justify-content-end">
