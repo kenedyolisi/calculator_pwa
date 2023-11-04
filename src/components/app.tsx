@@ -1,5 +1,5 @@
 import { Container, Row } from "react-bootstrap";
-import { DigitButton } from "./components/digit_button";
+import { DigitButton } from "./digit_button";
 
 export default function App() {
   return (
