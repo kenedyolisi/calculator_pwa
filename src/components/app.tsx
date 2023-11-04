@@ -1,9 +1,10 @@
-import { Button, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { DigitButton } from "./digit_button";
 import { OperatorButton } from "./operator_button";
 import { ResultButton } from "./result_button";
 import { Placeholder } from "./placeholder";
 import { ClearButton } from "./clear_button";
+import { DeleteButton } from "./delete_button";
 
 export function App() {
   return (
@@ -18,7 +19,7 @@ export function App() {
             <Placeholder colspan={2} />
             <Placeholder colspan={2} />
             <Placeholder colspan={2} />
-            <Button className="btn-danger col m-1">DEL</Button>
+            <DeleteButton />
             <ClearButton />
           </Row>
           <Row className="">
