@@ -1,11 +1,9 @@
-export function DigitButton({ value }: { value: number; }) {
+import { Button } from "react-bootstrap";
+
+export function DigitButton({ value }: { value: number | string }) {
   return (
-    <button
-      className="btn col-2 m-1 text-bg-light"
-      type="button"
-      data-value={value}
-    >
+    <Button className="btn-light col-2 m-1" type="button" data-value={value}>
       {value}
-    </button>
+    </Button>
   );
 }
