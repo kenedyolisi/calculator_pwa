@@ -1,7 +1,8 @@
-import { Container, Row } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import { DigitButton } from "./digit_button";
 import { OperatorButton } from "./operator_button";
 import { ResultButton } from "./result_button";
+import { Placeholder } from "./placeholder";
 
 export function App() {
   return (
@@ -12,6 +13,13 @@ export function App() {
           <div className="display-result">0</div>
         </div>
         <div className="m-2 p-2">
+          <Row className="justify-content-end">
+            <Placeholder colspan={2} />
+            <Placeholder colspan={2} />
+            <Placeholder colspan={2} />
+            <Button className="btn-danger col m-1">DEL</Button>
+            <Button className="btn-danger col m-1">AC</Button>
+          </Row>
           <Row className="">
             <DigitButton value={7} />
             <DigitButton value={8} />
@@ -34,10 +42,9 @@ export function App() {
             <OperatorButton value="-" />
           </Row>
           <Row className="">
-            <DigitButton value="."/>
+            <DigitButton value="." />
             <DigitButton value={0} />
-            <DigitButton value="∓"/>
-
+            <DigitButton value="∓" />
 
             <ResultButton />
           </Row>
