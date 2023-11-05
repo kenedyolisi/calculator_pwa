@@ -7,16 +7,20 @@ export function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(0);
 
-  function handleClick(event: Event) {
-    const target = event.target;
+  const numbers = "0123456789";
 
-    if (target?.tagName != "BUTTON") {
+  function handleClick(event: Event) {
+    const button = event.target?.closest("button"); // button element or it's descendants
+
+    // Handle non button click
+    if (!button) {
       return;
     }
-  }
 
-  function handleNumberClick(event: Event) {
-    setInput(input + event.target?.value);
+    // Handle numbers click
+    if (numbers.includes(button.value)) {
+      setInput(input + button.value);
+    }
   }
 
   function handleDecimalPointClick() {
