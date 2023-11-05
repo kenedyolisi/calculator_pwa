@@ -34,6 +34,13 @@ export function App() {
       }
     }
 
+    // Handle bracket Click
+    if (button.value === "(" || button.value === ")") {
+      setInput(input + button.value);
+
+      // TODO: add bracket color
+    }
+
     // Handle delete click
     if (button.value === "DEL") {
       // Check if input area is not empty
