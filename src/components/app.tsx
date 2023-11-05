@@ -41,6 +41,13 @@ export function App() {
         setInput(input.slice(0, -1));
       }
     }
+
+    // Handle clear click
+    if (button.value === "AC") {
+      if (input) {
+        setInput("");
+      }
+    }
   }
 
   function handleDecimalPointClick() {
@@ -52,16 +59,6 @@ export function App() {
         return;
       } else setInput(input + ".");
     }
-  }
-
-  function handleClearClick() {
-    if (input) {
-      setInput("");
-    }
-  }
-
-  function handleOperatorClick(event: Event) {
-    setInput(input + event.target?.value);
   }
 
   return (
