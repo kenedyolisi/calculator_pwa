@@ -72,22 +72,22 @@ export function App() {
             <CalcButton value={7} colspan={2} />
             <CalcButton value={8} colspan={2} />
             <CalcButton value={9} colspan={2} />
-            <CalcButton value=" ( " variant="secondary" />
-            <CalcButton value=" ) " variant="secondary" />
+            <CalcButton value="(" variant="secondary" />
+            <CalcButton value=")" variant="secondary" />
           </Row>
           <Row>
             <CalcButton value={4} colspan={2} />
             <CalcButton value={5} colspan={2} />
             <CalcButton value={6} colspan={2} />
-            <CalcButton value=" ÷ " variant="secondary" />
-            <CalcButton value=" × " variant="secondary" />
+            <CalcButton value="÷" variant="secondary" />
+            <CalcButton value="×" variant="secondary" />
           </Row>
           <Row>
             <CalcButton value={1} colspan={2} />
             <CalcButton value={2} colspan={2} />
             <CalcButton value={3} colspan={2} />
-            <CalcButton value=" + " variant="secondary" />
-            <CalcButton value=" - " variant="secondary" />
+            <CalcButton value="+" variant="secondary" />
+            <CalcButton value="-" variant="secondary" />
           </Row>
           <Row>
             <CalcButton value="." colspan={2} />
