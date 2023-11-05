@@ -8,6 +8,7 @@ export function App() {
   const [result, setResult] = useState(0);
 
   const numbers = "0123456789";
+  const operators = "÷×+-";
 
   function handleClick(event: Event) {
     const button = event.target?.closest("button"); // button element or it's descendants
@@ -20,6 +21,17 @@ export function App() {
     // Handle numbers click
     if (numbers.includes(button.value)) {
       setInput(input + button.value);
+    }
+
+    // Handle operators click
+    if (operators.includes(button.value)) {
+      // Check if the last input is an operator and replace it with the current
+      // operator since operators cannot follow each other
+      if (operators.includes(input.slice(-1))) {
+        setInput(input.slice(0, -1) + button.value);
+      } else {
+        setInput(input + button.value);
+      }
     }
 
     // Handle delete click
