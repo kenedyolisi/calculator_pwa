@@ -2,10 +2,11 @@ import { Container, Row } from "react-bootstrap";
 import { DigitButton } from "./digit_button";
 import { OperatorButton } from "./operator_button";
 import { ResultButton } from "./result_button";
-import { Placeholder } from "./placeholder";
 import { ClearButton } from "./clear_button";
 import { DeleteButton } from "./delete_button";
 import { useState } from "react";
+import { CalcPlaceholder } from "./calc_placeholder";
+
 
 export function App() {
   const [input, setInput] = useState("");
@@ -40,11 +41,11 @@ export function App() {
         </div>
         <div className="m-2 p-2">
           <Row className="justify-content-end">
-            <Placeholder colspan={2} />
-            <Placeholder colspan={2} />
-            <Placeholder colspan={2} />
             <DeleteButton handleClick={handleDeleteClick} />
             <ClearButton handleClick={handleClearClick} />
+            <CalcPlaceholder colspan={2} />
+            <CalcPlaceholder colspan={2} />
+            <CalcPlaceholder colspan={2} />
           </Row>
           <Row className="">
             <DigitButton value={7} handleClick={handleNumberClick} />
