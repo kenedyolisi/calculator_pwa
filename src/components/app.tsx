@@ -8,6 +8,14 @@ export function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(0);
 
+  function handleClick(event: Event) {
+    const target = event.target;
+
+    if (target?.tagName != "BUTTON") {
+      return;
+    }
+  }
+
   function handleNumberClick(event: Event) {
     setInput(input + event.target?.value);
   }
@@ -30,7 +38,10 @@ export function App() {
 
   return (
     <main>
-      <Container className="app text-center bg-body-secondary rounded-3">
+      <Container
+        className="app text-center bg-body-secondary rounded-3"
+        onClick={handleClick}
+      >
         <div className="display text-bg-info m-2 p-2 rounded-2">
           <div className="display-input">{input}</div>
           <div className="display-result">{result}</div>
