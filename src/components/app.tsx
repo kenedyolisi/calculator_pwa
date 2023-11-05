@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Container, Row} from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { CalcButton } from "./calc_button";
 import { CalcPlaceholder } from "./calc_placeholder";
-
 
 export function App() {
   const [input, setInput] = useState("");
