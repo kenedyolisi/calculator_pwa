@@ -20,6 +20,17 @@ export function App() {
     setInput(input + event.target?.value);
   }
 
+  function handleDecimalPointClick() {
+    const lastInput = input.slice(-1);
+    if (!lastInput) {
+      setInput("0.");
+    } else {
+      if (lastInput === ".") {
+        return;
+      } else setInput(input + ".");
+    }
+  }
+
   function handleDeleteClick() {
     if (input) {
       setInput(input.slice(0, -1));
@@ -43,8 +54,8 @@ export function App() {
         onClick={handleClick}
       >
         <div className="display text-bg-info m-2 p-2 rounded-2">
-          <div className="display-input">{input}</div>
-          <div className="display-result">{result}</div>
+          <div className="input">{input}</div>
+          <div className="result">{result}</div>
         </div>
         <div className="m-2 p-2">
           <Row>
