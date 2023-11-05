@@ -1,10 +1,6 @@
-import { Container, Row } from "react-bootstrap";
-import { DigitButton } from "./digit_button";
-import { OperatorButton } from "./operator_button";
-import { ResultButton } from "./result_button";
-import { ClearButton } from "./clear_button";
-import { DeleteButton } from "./delete_button";
 import { useState } from "react";
+import { Container, Row} from "react-bootstrap";
+import { CalcButton } from "./calc_button";
 import { CalcPlaceholder } from "./calc_placeholder";
 
 
@@ -40,40 +36,39 @@ export function App() {
           <div className="display-result">{result}</div>
         </div>
         <div className="m-2 p-2">
-          <Row className="justify-content-end">
-            <DeleteButton handleClick={handleDeleteClick} />
-            <ClearButton handleClick={handleClearClick} />
+          <Row>
             <CalcPlaceholder colspan={2} />
             <CalcPlaceholder colspan={2} />
             <CalcPlaceholder colspan={2} />
+            <CalcButton value="DEL" variant="danger" />
+            <CalcButton value="AC" variant="danger" />
           </Row>
-          <Row className="">
-            <DigitButton value={7} handleClick={handleNumberClick} />
-            <DigitButton value={8} handleClick={handleNumberClick} />
-            <DigitButton value={9} handleClick={handleNumberClick} />
-            <OperatorButton value=" ( " handleClick={handleOperatorClick} />
-            <OperatorButton value=" ) " handleClick={handleOperatorClick} />
+          <Row>
+            <CalcButton value={7} colspan={2} />
+            <CalcButton value={8} colspan={2} />
+            <CalcButton value={9} colspan={2} />
+            <CalcButton value=" ( " variant="secondary" />
+            <CalcButton value=" ) " variant="secondary" />
           </Row>
-          <Row className="">
-            <DigitButton value={4} handleClick={handleNumberClick} />
-            <DigitButton value={5} handleClick={handleNumberClick} />
-            <DigitButton value={6} handleClick={handleNumberClick} />
-            <OperatorButton value=" ÷ " handleClick={handleOperatorClick} />
-            <OperatorButton value=" × " handleClick={handleOperatorClick} />
+          <Row>
+            <CalcButton value={4} colspan={2} />
+            <CalcButton value={5} colspan={2} />
+            <CalcButton value={6} colspan={2} />
+            <CalcButton value=" ÷ " variant="secondary" />
+            <CalcButton value=" × " variant="secondary" />
           </Row>
-          <Row className="">
-            <DigitButton value={3} handleClick={handleNumberClick} />
-            <DigitButton value={2} handleClick={handleNumberClick} />
-            <DigitButton value={1} handleClick={handleNumberClick} />
-            <OperatorButton value=" + " handleClick={handleOperatorClick} />
-            <OperatorButton value=" - " handleClick={handleOperatorClick} />
+          <Row>
+            <CalcButton value={1} colspan={2} />
+            <CalcButton value={2} colspan={2} />
+            <CalcButton value={3} colspan={2} />
+            <CalcButton value=" + " variant="secondary" />
+            <CalcButton value=" - " variant="secondary" />
           </Row>
-          <Row className="">
-            <DigitButton value="." />
-            <DigitButton value={0} handleClick={handleNumberClick} />
-            <DigitButton value="∓" />
-
-            <ResultButton />
+          <Row>
+            <CalcButton value="." colspan={2} />
+            <CalcButton value={0} colspan={2} />
+            <CalcButton value="∓" colspan={2} />
+            <CalcButton value="=" variant="success" />
           </Row>
         </div>
       </Container>
