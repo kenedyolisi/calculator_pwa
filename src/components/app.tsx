@@ -21,6 +21,14 @@ export function App() {
     if (numbers.includes(button.value)) {
       setInput(input + button.value);
     }
+
+    // Handle delete click
+    if (button.value === "DEL") {
+      // Check if input area is not empty
+      if (input) {
+        setInput(input.slice(0, -1));
+      }
+    }
   }
 
   function handleDecimalPointClick() {
@@ -31,12 +39,6 @@ export function App() {
       if (lastInput === ".") {
         return;
       } else setInput(input + ".");
-    }
-  }
-
-  function handleDeleteClick() {
-    if (input) {
-      setInput(input.slice(0, -1));
     }
   }
 
