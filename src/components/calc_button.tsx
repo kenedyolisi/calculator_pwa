@@ -4,9 +4,10 @@ interface CalcButtonProps {
   variant?: string;
   colspan?: number;
   value: number | string;
+  html?: string;
 }
 
-export function CalcButton({ variant, colspan, value }: CalcButtonProps) {
+export function CalcButton({ variant, colspan, value, html }: CalcButtonProps) {
   return (
     <Button
       className={`${variant ? "btn-" + variant : "btn-light"} ${
@@ -15,7 +16,7 @@ export function CalcButton({ variant, colspan, value }: CalcButtonProps) {
       type="button"
       value={value}
     >
-      {value}
+      {html ? html : value}
     </Button>
   );
 }

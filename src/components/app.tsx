@@ -97,8 +97,8 @@ export function App() {
             <CalcButton value={4} colspan={2} />
             <CalcButton value={5} colspan={2} />
             <CalcButton value={6} colspan={2} />
-            <CalcButton value="÷" variant="secondary" />
-            <CalcButton value="×" variant="secondary" />
+            <CalcButton value="/" html="÷" variant="secondary" />
+            <CalcButton value="*" html="×" variant="secondary" />
           </Row>
           <Row>
             <CalcButton value={1} colspan={2} />
