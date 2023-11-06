@@ -2,69 +2,82 @@ import { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { CalcButton } from "./calc_button";
 import { CalcPlaceholder } from "./calc_placeholder";
+import { evaluate } from "mathjs";
 
 export function App() {
   const [input, setInput] = useState("");
-  const [result, setResult] = useState(0);
+  const [result, setResult] = useState<unknown>(0);
 
-  const numbers = "0123456789";
-  const operators = "÷×+-";
+  const operators = "/*+-";
+
+  /**
+   * Check if a str is an operator.
+   * @param str string to check
+   * @returns boolean
+   */
+  function isOperator(str: string) {
+    return operators.includes(str);
+  }
 
   function handleClick(event: Event) {
-    const button = event.target?.closest("button"); // button element or it's descendants
+    const button: HTMLButtonElement = event.target?.closest("button"); // button element or it's descendants
 
     // Handle non button click
     if (!button) {
       return;
     }
 
-    // Handle numbers click
-    if (numbers.includes(button.value)) {
-      setInput(input + button.value);
-    }
+    // Handle button click
+    switch (button.value) {
+      // Handle operators
+      case "/":
+      case "*":
+      case "+":
+      case "-":
+        // Check if input area is not empty since operator cannot begin
+        // expression
+        if (input) {
+          isOperator(input.slice(-1))
+            ? setInput(input.slice(0, -1) + button.value)
+            : setInput(input + button.value);
+        }
 
-    // Handle operators click
-    if (operators.includes(button.value)) {
-      // Check if the last input is an operator and replace it with the current
-      // operator since operators cannot follow each other
-      if (operators.includes(input.slice(-1))) {
-        setInput(input.slice(0, -1) + button.value);
-      } else {
+        break;
+      case "(":
+      case ")":
         setInput(input + button.value);
-      }
-    }
+        break;
 
-    // Handle bracket Click
-    if (button.value === "(" || button.value === ")") {
-      setInput(input + button.value);
+      // Handle decimal
+      case ".":
+        break;
 
-      // TODO: add bracket color
-    }
+      // Handle sign
+      case "∓":
+        break;
 
-    // Handle delete click
-    if (button.value === "DEL") {
-      // Check if input area is not empty
-      if (input) {
-        setInput(input.slice(0, -1));
-      }
-    }
+      // Handle delete button
+      case "DEL":
+        if (input) {
+          setInput(input.slice(0, -1));
+        }
+        break;
 
-    // Handle clear click
-    if (button.value === "AC") {
-      if (input) {
-        setInput("");
-      }
-    }
-  }
+      // Handle clear button
+      case "AC":
+        if (input) {
+          setInput("");
+        }
+        setResult(0);
+        break;
 
-  function handleDecimalPointClick() {
-    const lastInput = input.slice(-1);
-    if (!lastInput) {
-      setInput("0.");
-    } else {
-      if (lastInput === ".") {
-        return;
-      } else setInput(input + ".");
+      // Handle equals button
+      case "=":
+        setResult(evaluate(input));
+        break;
+      default:
+        setInput(input + button.value);
+        break;
     }
   }
 
