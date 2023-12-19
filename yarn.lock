@@ -1359,12 +1359,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7":
+"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7":
   version: 7.23.2
   resolution: "@babel/runtime@npm:7.23.2"
   dependencies:
     regenerator-runtime: ^0.14.0
   checksum: 6c4df4839ec75ca10175f636d6362f91df8a3137f86b38f6cd3a4c90668a0fe8e9281d320958f4fbd43b394988958585a17c3aab2a4ea6bf7316b22916a371fb
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.23.5":
+  version: 7.23.6
+  resolution: "@babel/runtime@npm:7.23.6"
+  dependencies:
+    regenerator-runtime: ^0.14.0
+  checksum: 1a8eaf3d3a103ef5227b60ca7ab5c589118c36ca65ef2d64e65380b32a98a3f3b5b3ef96660fa0471b079a18b619a8317f3e7f03ab2b930c45282a8b69ed9a16
   languageName: node
   linkType: hard
 
@@ -2768,7 +2777,7 @@ __metadata:
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.5
-    mathjs: ^12.1.0
+    mathjs: ^12.2.0
     react: ^18.2.0
     react-bootstrap: ^2.9.1
     react-dom: ^18.2.0
@@ -4879,11 +4888,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:^12.1.0":
-  version: 12.1.0
-  resolution: "mathjs@npm:12.1.0"
+"mathjs@npm:^12.2.0":
+  version: 12.2.0
+  resolution: "mathjs@npm:12.2.0"
   dependencies:
-    "@babel/runtime": ^7.23.2
+    "@babel/runtime": ^7.23.5
     complex.js: ^2.1.1
     decimal.js: ^10.4.3
     escape-latex: ^1.2.0
@@ -4894,7 +4903,7 @@ __metadata:
     typed-function: ^4.1.1
   bin:
     mathjs: bin/cli.js
-  checksum: 272691bb3e302c35a36c8e4f7ff947bfdd99adb59dede05611a58fb31ef720e07e4414e3f3560af71fb6411ea54af86c0ede47ff3cd343fea66f6d07b463b80e
+  checksum: 44a23b197807cdf5e9a5d4136a9c61011c0487fceaadfe0ea9d4c2e243adeb806aa72fe7e2445ba832a72574befc769b8cf37cdf15ab591dbec0060f83d39892
   languageName: node
   linkType: hard
 
