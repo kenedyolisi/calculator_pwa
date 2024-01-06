@@ -1434,7 +1434,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.23.5":
+"@babel/runtime@npm:^7.23.6":
   version: 7.23.6
   resolution: "@babel/runtime@npm:7.23.6"
   dependencies:
@@ -2886,7 +2886,7 @@ __metadata:
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.5
-    mathjs: ^12.2.0
+    mathjs: ^12.2.1
     react: ^18.2.0
     react-bootstrap: ^2.9.2
     react-dom: ^18.2.0
@@ -5011,11 +5011,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:^12.2.0":
-  version: 12.2.0
-  resolution: "mathjs@npm:12.2.0"
+"mathjs@npm:^12.2.1":
+  version: 12.2.1
+  resolution: "mathjs@npm:12.2.1"
   dependencies:
-    "@babel/runtime": ^7.23.5
+    "@babel/runtime": ^7.23.6
     complex.js: ^2.1.1
     decimal.js: ^10.4.3
     escape-latex: ^1.2.0
@@ -5026,7 +5026,7 @@ __metadata:
     typed-function: ^4.1.1
   bin:
     mathjs: bin/cli.js
-  checksum: 44a23b197807cdf5e9a5d4136a9c61011c0487fceaadfe0ea9d4c2e243adeb806aa72fe7e2445ba832a72574befc769b8cf37cdf15ab591dbec0060f83d39892
+  checksum: ea31245208f36e70b66bbdc889f32c2aadeb37a131316fcef380184b96039d3ecbac5c6786c3e603252a96c93d49b5d9cd32a4da68cdf88f399abaa0c4a936d7
   languageName: node
   linkType: hard
 
