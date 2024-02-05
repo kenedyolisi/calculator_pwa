@@ -28,7 +28,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "sass": "^1.69.5",
-    "stylelint": "^16.0.2",
+    "stylelint": "^16.2.1",
     "stylelint-config-twbs-bootstrap": "^13.0.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
