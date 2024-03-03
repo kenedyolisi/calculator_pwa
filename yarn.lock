@@ -1434,12 +1434,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.23.6":
-  version: 7.23.6
-  resolution: "@babel/runtime@npm:7.23.6"
+"@babel/runtime@npm:^7.23.9":
+  version: 7.24.0
+  resolution: "@babel/runtime@npm:7.24.0"
   dependencies:
     regenerator-runtime: ^0.14.0
-  checksum: 1a8eaf3d3a103ef5227b60ca7ab5c589118c36ca65ef2d64e65380b32a98a3f3b5b3ef96660fa0471b079a18b619a8317f3e7f03ab2b930c45282a8b69ed9a16
+  checksum: 7a6a5d40fbdd68491ec183ba2e631c07415119960083b4fd76564cce3751e9acd2f12ab89575e38496fa389fa06d458732776e69ee1858e366cc3fbdb049f847
   languageName: node
   linkType: hard
 
@@ -2922,7 +2922,7 @@ __metadata:
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.5
-    mathjs: ^12.2.1
+    mathjs: ^12.4.0
     react: ^18.2.0
     react-bootstrap: ^2.9.2
     react-dom: ^18.2.0
@@ -5067,11 +5067,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mathjs@npm:^12.2.1":
-  version: 12.2.1
-  resolution: "mathjs@npm:12.2.1"
+"mathjs@npm:^12.4.0":
+  version: 12.4.0
+  resolution: "mathjs@npm:12.4.0"
   dependencies:
-    "@babel/runtime": ^7.23.6
+    "@babel/runtime": ^7.23.9
     complex.js: ^2.1.1
     decimal.js: ^10.4.3
     escape-latex: ^1.2.0
@@ -5082,7 +5082,7 @@ __metadata:
     typed-function: ^4.1.1
   bin:
     mathjs: bin/cli.js
-  checksum: ea31245208f36e70b66bbdc889f32c2aadeb37a131316fcef380184b96039d3ecbac5c6786c3e603252a96c93d49b5d9cd32a4da68cdf88f399abaa0c4a936d7
+  checksum: c72f7e523cbbd8278b37a6a7567ca94ed6d87254d2274918fd0aa9dbe1b194a1665b694abf2b5f0bfe78657fb0b86f9549998d73b71c98ab4683761134b2b8fa
   languageName: node
   linkType: hard
 
