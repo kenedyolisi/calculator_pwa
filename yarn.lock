@@ -2931,7 +2931,7 @@ __metadata:
     stylelint-config-twbs-bootstrap: ^13.0.0
     typescript: ^5.3.3
     vite: ^5.1.4
-    vite-plugin-pwa: ^0.17.4
+    vite-plugin-pwa: ^0.19.2
   peerDependencies:
     "@popperjs/core": "*"
   languageName: unknown
@@ -7139,9 +7139,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-pwa@npm:^0.17.4":
-  version: 0.17.4
-  resolution: "vite-plugin-pwa@npm:0.17.4"
+"vite-plugin-pwa@npm:^0.19.2":
+  version: 0.19.2
+  resolution: "vite-plugin-pwa@npm:0.19.2"
   dependencies:
     debug: ^4.3.4
     fast-glob: ^3.3.2
@@ -7149,10 +7149,14 @@ __metadata:
     workbox-build: ^7.0.0
     workbox-window: ^7.0.0
   peerDependencies:
+    "@vite-pwa/assets-generator": ^0.2.4
     vite: ^3.1.0 || ^4.0.0 || ^5.0.0
     workbox-build: ^7.0.0
     workbox-window: ^7.0.0
-  checksum: aaa0247a435d0621b0c3078938156fde1a1abbd2cb0608968d79beec85f5348e50a2cc8e1bd75bee85f7b5385e20eaf388d4a710466252050f1d660b64245bec
+  peerDependenciesMeta:
+    "@vite-pwa/assets-generator":
+      optional: true
+  checksum: 3c7840047ce56047d6f8b150591683558f4efac380bcc22db9d6c2da275d705b0e438d31c0f02edaaf2c0725de87604247f771a0e867847200801f976fb9f98f
   languageName: node
   linkType: hard
 
