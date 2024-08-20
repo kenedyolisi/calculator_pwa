@@ -4,17 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/svelte": "^5.7.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.14.2",
     "bootstrap": "^5.3.3",
     "mathjs": "^12.2.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "svelte": "5.0.0-next.225"
   },
   "devDependencies": {
     "@types/bootstrap": "^5",
@@ -22,6 +26,7 @@
     "@types/react-dom": "^18.2.25",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
+    "@vite-pwa/astro": "^0.4.0",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
@@ -30,7 +35,8 @@
     "sass": "^1.71.1",
     "stylelint": "^16.2.1",
     "stylelint-config-twbs-bootstrap": "^14.1.0",
-    "typescript": "^5.3.3",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4",
     "vite": "^5.1.7",
     "vite-plugin-pwa": "^0.17.4"
   },
