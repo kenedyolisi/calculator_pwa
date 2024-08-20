@@ -60,9 +60,6 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.2.1
         version: 4.3.1(vite@5.4.1(sass@1.77.8)(terser@5.31.6))
-      autoprefixer:
-        specifier: ^10.4.20
-        version: 10.4.20(postcss@8.4.41)
       eslint:
         specifier: ^8.56.0
         version: 8.57.0
