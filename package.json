@@ -10,12 +10,14 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/svelte": "^5.7.0",
     "astro": "^4.14.2",
     "bootstrap": "^5.3.3",
     "mathjs": "^12.2.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "svelte": "^4.2.18"
   },
   "devDependencies": {
     "@types/bootstrap": "^5",
@@ -34,7 +36,7 @@
     "stylelint": "^16.2.1",
     "stylelint-config-twbs-bootstrap": "^14.1.0",
     "tailwindcss": "^3.4.10",
-    "typescript": "^5.3.3",
+    "typescript": "^5.5.4",
     "vite": "^5.1.7",
     "vite-plugin-pwa": "^0.17.4"
   },
