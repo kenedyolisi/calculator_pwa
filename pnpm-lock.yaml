@@ -51,6 +51,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.1.0
         version: 7.18.0(eslint@8.57.0)(typescript@5.5.4)
+      '@vite-pwa/astro':
+        specifier: ^0.4.0
+        version: 0.4.0(astro@4.14.2(rollup@2.79.1)(sass@1.77.8)(terser@5.31.6)(typescript@5.5.4))(vite-plugin-pwa@0.17.5(vite@5.4.1(sass@1.77.8)(terser@5.31.6))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))
       '@vitejs/plugin-react':
         specifier: ^4.2.1
         version: 4.3.1(vite@5.4.1(sass@1.77.8)(terser@5.31.6))
@@ -1403,6 +1406,16 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  '@vite-pwa/astro@0.4.0':
+    resolution: {integrity: sha512-Fw9XCZsS808TRQVCe5nSwiOHGbiUgyXPu8VQBPan7P52JnJpZOomHQsKGBeFGYcwE5RQC6DNXXDGXm9WgYtXuw==}
+    peerDependencies:
+      '@vite-pwa/assets-generator': ^0.2.4
+      astro: ^1.6.0 || ^2.0.0 || ^3.0.0 || ^4.0.0
+      vite-plugin-pwa: '>=0.20.0 <1'
+    peerDependenciesMeta:
+      '@vite-pwa/assets-generator':
+        optional: true
 
   '@vitejs/plugin-react@4.3.1':
     resolution: {integrity: sha512-m/V2syj5CuVnaxcUJOQRel/Wr31FFXRFlnOoq1TVtkCxsY5veGMTEmpWHndrhB2U8ScHtCQB1e+4hWYExQc6Lg==}
@@ -5459,6 +5472,11 @@ snapshots:
       eslint-visitor-keys: 3.4.3
 
   '@ungap/structured-clone@1.2.0': {}
+
+  '@vite-pwa/astro@0.4.0(astro@4.14.2(rollup@2.79.1)(sass@1.77.8)(terser@5.31.6)(typescript@5.5.4))(vite-plugin-pwa@0.17.5(vite@5.4.1(sass@1.77.8)(terser@5.31.6))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))':
+    dependencies:
+      astro: 4.14.2(rollup@2.79.1)(sass@1.77.8)(terser@5.31.6)(typescript@5.5.4)
+      vite-plugin-pwa: 0.17.5(vite@5.4.1(sass@1.77.8)(terser@5.31.6))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0)
 
   '@vitejs/plugin-react@4.3.1(vite@5.4.1(sass@1.77.8)(terser@5.31.6))':
     dependencies:

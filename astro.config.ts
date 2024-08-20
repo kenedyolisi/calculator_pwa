@@ -1,7 +1,7 @@
 import svelte from "@astrojs/svelte";
+import PWA from "@vite-pwa/astro";
 import { defineConfig } from "astro/config";
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [svelte()]
+  integrations: [PWA(), svelte()],
 });
