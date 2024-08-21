@@ -61,7 +61,7 @@
           break;
         // Handle 0
         case "0":
-          if (input.length === 1) {
+          if (input === "0") {
             return;
           } else {
             input += dataValue;
