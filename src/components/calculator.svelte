@@ -67,6 +67,17 @@
           input = "0";
           result = "";
           break;
+        // Handle delete
+        case "DEL":
+          if (input === "0") {
+            return;
+          }
+          if (input.length > 1) {
+            input = input.slice(0, -1);
+          } else {
+            input = "0";
+          }
+          break;
 
         default:
           break;
