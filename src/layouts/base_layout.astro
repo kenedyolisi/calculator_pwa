@@ -1,15 +1,33 @@
+---
+import "@styles/app.css";
+---
+
 <!doctype html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0f172a"
+      media="(prefers-color-scheme: dark)"
+    />
 
-    <link rel="icon" type="image/svg+xml" href="/calculator.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <title>Calculator PWA</title>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="bg-white text-slate-900 dark:text-slate-200 dark:bg-slate-900">
+    <div class="flex h-screen items-center justify-center">
+      <slot />
+    </div>
   </body>
 </html>

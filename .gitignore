@@ -118,6 +118,8 @@ out
 .nuxt
 dist
 
+# Astro build/generate output
+/.astro
 
 # vuepress build output
 .vuepress/dist
