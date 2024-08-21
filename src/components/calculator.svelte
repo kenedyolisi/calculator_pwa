@@ -30,7 +30,7 @@
         case "7":
         case "8":
         case "9":
-          if (input === "0") {
+          if (input === "0" || /=/.test(input.at(-1))) {
             input = dataValue;
           } else {
             input += dataValue;
