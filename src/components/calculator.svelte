@@ -67,6 +67,11 @@
             input += dataValue;
           }
           break;
+        // Handle clear
+        case "AC":
+          input = "0";
+          result = "";
+          break;
 
         default:
           break;
