@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Button from "@components/button.svelte";
   import { evaluate } from "mathjs";
+  import { chronicles } from "src/store";
 
   let input = $state("0");
   let result = $state("");
@@ -61,6 +61,7 @@
         case "=":
           input += dataValue;
           result = evaluate(input.slice(0, -1));
+          $chronicles = [...$chronicles, { expression: input, result }];
           break;
         // Handle clear
         case "AC":
