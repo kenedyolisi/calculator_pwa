@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from "@components/button.svelte";
+  import { evaluate } from "mathjs";
 
   let input = $state("0");
   let result = $state("");
@@ -66,6 +67,11 @@
           } else {
             input += dataValue;
           }
+          break;
+        // Handle equals
+        case "=":
+          input += " " + dataValue + " ";
+          result = evaluate(input.slice(0, -3));
           break;
         // Handle clear
         case "AC":
