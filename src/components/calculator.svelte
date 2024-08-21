@@ -59,6 +59,14 @@
             input += dataValue;
           }
           break;
+        // Handle 0
+        case "0":
+          if (input.length === 1) {
+            return;
+          } else {
+            input += dataValue;
+          }
+          break;
 
         default:
           break;
