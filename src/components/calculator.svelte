@@ -109,7 +109,7 @@
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div class="grid grow grid-cols-5 gap-2" onclick={handleClick}>
     <button
-      class="col-start-4 rounded-md bg-rose-200 hover:bg-rose-300 active:scale-95"
+      class="col-start-4 bg-rose-200 hover:bg-rose-300"
       type="button"
       data-value="DEL"
       aria-label="delete"
@@ -117,7 +117,7 @@
       DEL
     </button>
     <button
-      class="rounded-md bg-rose-200 hover:bg-rose-300 active:scale-95"
+      class="bg-rose-200 hover:bg-rose-300"
       type="button"
       data-value="AC"
       aria-label="clear"
@@ -125,7 +125,7 @@
       AC
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="7"
       aria-label="7"
@@ -133,7 +133,7 @@
       7
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="8"
       aria-label="8"
@@ -141,7 +141,7 @@
       8
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="9"
       aria-label="9"
@@ -149,7 +149,7 @@
       9
     </button>
     <button
-      class="rounded-md bg-slate-200 hover:bg-slate-300 active:scale-95"
+      class="bg-slate-200 hover:bg-slate-300"
       type="button"
       data-value="("
       aria-label="open bracket"
@@ -157,7 +157,7 @@
       (
     </button>
     <button
-      class="rounded-md bg-slate-200 hover:bg-slate-300 active:scale-95"
+      class="bg-slate-200 hover:bg-slate-300"
       type="button"
       data-value=")"
       aria-label="close bracket"
@@ -165,7 +165,7 @@
       )
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="3"
       aria-label="3"
@@ -173,7 +173,7 @@
       3
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="4"
       aria-label="4"
@@ -181,7 +181,7 @@
       4
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="5"
       aria-label="5"
@@ -189,7 +189,7 @@
       5
     </button>
     <button
-      class="rounded-md bg-slate-200 hover:bg-slate-300 active:scale-95"
+      class="bg-slate-200 hover:bg-slate-300"
       type="button"
       data-value="/"
       aria-label="divide by"
@@ -197,7 +197,7 @@
       &div;
     </button>
     <button
-      class="rounded-md bg-slate-200 hover:bg-slate-300 active:scale-95"
+      class="bg-slate-200 hover:bg-slate-300"
       type="button"
       data-value="*"
       aria-label="multiply by"
@@ -213,7 +213,7 @@
       1
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="2"
       aria-label="2"
@@ -221,7 +221,7 @@
       2
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="3"
       aria-label="3"
@@ -229,7 +229,7 @@
       3
     </button>
     <button
-      class="rounded-md bg-slate-200 hover:bg-slate-300 active:scale-95"
+      class="bg-slate-200 hover:bg-slate-300"
       type="button"
       data-value="+"
       aria-label="plus"
@@ -237,7 +237,7 @@
       +
     </button>
     <button
-      class="rounded-md bg-slate-200 hover:bg-slate-300 active:scale-95"
+      class="bg-slate-200 hover:bg-slate-300"
       type="button"
       data-value="-"
       aria-label="minus"
@@ -245,7 +245,7 @@
       -
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="±"
       aria-label="negate"
@@ -253,7 +253,7 @@
       ±
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="0"
       aria-label="0"
@@ -261,7 +261,7 @@
       0
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="."
       aria-label="dot"
@@ -269,7 +269,7 @@
       &dot;
     </button>
     <button
-      class="col-span-2 rounded-md bg-green-200 hover:bg-green-300 active:scale-95"
+      class="col-span-2 bg-green-200 hover:bg-green-300"
       type="button"
       data-value="="
       aria-label="equals"
@@ -278,3 +278,9 @@
     </button>
   </div>
 </div>
+
+<style>
+  button {
+    @apply rounded-lg active:scale-95;
+  }
+</style>
