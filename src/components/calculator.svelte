@@ -44,6 +44,19 @@
             input += dataValue;
           }
           break;
+        // Handle operators
+        case "/":
+        case "*":
+        case "+":
+        case "-":
+          if (/[/*+-]/.test(input.at(-1))) {
+            input = input.slice(0, -1) + dataValue;
+          } else if (/=/.test(input.at(-1)) && result) {
+            input = result + dataValue;
+          } else {
+            input += dataValue;
+          }
+          break;
         // Handle equals
         case "=":
           input += " " + dataValue + " ";
