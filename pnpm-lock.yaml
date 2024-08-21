@@ -17,9 +17,6 @@ importers:
       astro:
         specifier: ^4.14.2
         version: 4.14.2(rollup@2.79.1)(sass@1.77.8)(terser@5.31.6)(typescript@5.5.4)
-      bootstrap:
-        specifier: ^5.3.3
-        version: 5.3.3(@popperjs/core@2.11.8)
       mathjs:
         specifier: ^12.2.1
         version: 12.4.3
@@ -1026,9 +1023,6 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@popperjs/core@2.11.8':
-    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
-
   '@rollup/plugin-babel@5.3.1':
     resolution: {integrity: sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q==}
     engines: {node: '>= 10.0.0'}
@@ -1457,11 +1451,6 @@ packages:
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
-
-  bootstrap@5.3.3:
-    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
-    peerDependencies:
-      '@popperjs/core': ^2.11.8
 
   boxen@7.1.1:
     resolution: {integrity: sha512-2hCgjEmP8YLWQ130n2FerGv7rYpfBmnmp9Uy2Le1vge6X3gZIfSmEzP5QTDElFxcvVcXlEn8Aq6MU/PZygIOog==}
@@ -4990,8 +4979,6 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@popperjs/core@2.11.8': {}
-
   '@rollup/plugin-babel@5.3.1(@babel/core@7.25.2)(@types/babel__core@7.20.5)(rollup@2.79.1)':
     dependencies:
       '@babel/core': 7.25.2
@@ -5533,10 +5520,6 @@ snapshots:
   base-64@1.0.0: {}
 
   binary-extensions@2.3.0: {}
-
-  bootstrap@5.3.3(@popperjs/core@2.11.8):
-    dependencies:
-      '@popperjs/core': 2.11.8
 
   boxen@7.1.1:
     dependencies:
