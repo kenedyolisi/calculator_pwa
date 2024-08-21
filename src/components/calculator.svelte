@@ -59,8 +59,8 @@
           break;
         // Handle equals
         case "=":
-          input += " " + dataValue + " ";
-          result = evaluate(input.slice(0, -3));
+          input += dataValue;
+          result = evaluate(input.slice(0, -1));
           break;
         // Handle clear
         case "AC":
