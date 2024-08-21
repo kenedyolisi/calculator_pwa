@@ -5,6 +5,6 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://kenedyolisi.github.io",
-  base: "calendar-pwa",
+  base: "/calculator_pwa",
   integrations: [PWA(), svelte(), tailwind()],
 });
