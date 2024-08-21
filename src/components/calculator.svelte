@@ -27,6 +27,44 @@
     { text: ".", dataValue: ".", label: "point" },
     { text: "=", dataValue: "=", label: "equals" },
   ];
+
+  function handleClick(
+    event: MouseEvent & { target: EventTarget & HTMLElement },
+  ) {
+    const button: HTMLButtonElement | null = event.target?.closest("button");
+
+    // Ignore non-buttons
+    if (!button) {
+      return;
+    }
+
+    const dataValue = button.getAttribute("data-value");
+
+    if (dataValue) {
+      // Handle button click
+      switch (dataValue) {
+        // Handle numbers
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+          if (input === "0") {
+            input = dataValue;
+          } else {
+            input += dataValue;
+          }
+          break;
+
+        default:
+          break;
+      }
+    }
+  }
 </script>
 
 <!-- Calculator -->
@@ -48,8 +86,9 @@
       {result}
     </div>
   </div>
-
-  <div class="grid h-full w-full grid-cols-5 gap-2">
+  <!-- svelte-ignore a11y_click_events_have_key_events -->
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
+  <div class="grid h-full w-full grid-cols-5 gap-2" onclick={handleClick}>
     {#each buttons as { dataValue, label, text } (text)}
       <Button
         class={`${text === "DEL" ? "col-start-4" : ""} ${text === "=" ? "col-span-2 bg-green-500" : ""}`}
