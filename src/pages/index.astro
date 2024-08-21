@@ -1,7 +1,10 @@
 ---
+import Calculator from "@components/calculator.svelte";
 import Layout from "@layouts/base_layout.astro";
 ---
 
 <Layout>
-  <main></main>
+  <main>
+    <Calculator client:load />
+  </main>
 </Layout>
