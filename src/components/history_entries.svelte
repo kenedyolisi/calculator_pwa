@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Chronicle from "@components/chronicle.svelte";
+  import Chronicle from "@components/history_entry.svelte";
   import { chronicles } from "src/store";
 </script>
 
