@@ -6,11 +6,9 @@
 {#if $historyEntries.length}
   <ul class="flex flex-col-reverse gap-1">
     {#each $historyEntries as historyEntry, index (index)}
-      <li>
-        <HistoryEntry {historyEntry} />
-      </li>
+      <HistoryEntry {historyEntry} />
     {/each}
   </ul>
 {:else}
-  <p class="text-center text-sm">There is nothing in history yet</p>
+  <p class="text-center text-sm">There is nothing in history yet.</p>
 {/if}
