@@ -92,21 +92,18 @@
 </script>
 
 <!-- Calculator -->
-<div
-  class="h-full w-full max-w-md space-y-3 rounded-md border-4 border-slate-300 bg-slate-100 px-4 py-2"
->
+<div class="flex h-full flex-col space-y-3 rounded-md bg-slate-100 p-4">
   <!-- Display -->
   <div class="rounded-md bg-white text-end">
     <!-- Input -->
-    <div class="h-9">
-      <input
-        class="block h-full w-full rounded-t-md px-3 py-1 text-end focus-within:outline-none"
-        type="text"
-        bind:value={input}
-      />
-    </div>
+    <input
+      class="my-1 block w-full rounded-t-md px-3 py-1 text-end text-xl focus-within:outline-none"
+      type="text"
+      bind:value={input}
+    />
+
     <!-- Result -->
-    <div class="h-9 px-3 py-1">
+    <div class="my-1 h-10 px-3 py-1 text-2xl font-medium">
       {result}
     </div>
   </div>
@@ -210,7 +207,7 @@
       &times;
     </button>
     <button
-      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="1"
       aria-label="1"
