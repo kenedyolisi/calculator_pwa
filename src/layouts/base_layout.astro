@@ -7,6 +7,7 @@ import "@styles/app.css";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
     <meta
       name="theme-color"
       content="#ffffff"
@@ -18,15 +19,20 @@ import "@styles/app.css";
       media="(prefers-color-scheme: dark)"
     />
 
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/calculator_pwa/apple-touch-icon.png" />
+    <link rel="icon" href="/calculator_pwa/favicon.ico" sizes="48x48" />
+    <link
+      rel="icon"
+      href="/calculator_pwa/favicon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+    <link rel="manifest" href="/calculator_pwa/site.webmanifest" />
 
     <title>Calculator PWA</title>
   </head>
-  <body class="bg-white text-slate-900 dark:text-slate-200 dark:bg-slate-900">
-    <div class="flex h-screen items-center justify-center">
+  <body class="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
+    <div class="h-screen w-screen">
       <slot />
     </div>
   </body>

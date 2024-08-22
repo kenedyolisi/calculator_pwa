@@ -3,7 +3,7 @@
   import { chronicles } from "src/store";
 </script>
 
-<ul class="space-y-1">
+<ul class="flex flex-col-reverse gap-1">
   {#each $chronicles as chronicle, index (index)}
     <li>
       <Chronicle {chronicle} />

@@ -1,3 +1,6 @@
 # Calculator PWA
 
-A simple calculator PWA made with react.
+A simple calculator PWA made with Astro + Svelte.
+
+## Roadmap
+
