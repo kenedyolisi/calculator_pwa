@@ -1,0 +1,15 @@
+.icon {
+  @apply inline-block size-4 bg-current align-middle;
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.icon-history {
+  mask-image: url(/src/icons/history.svg);
+}
+
+.icon-trash {
+  mask-image: url(/src/icons/trash.svg);
+}
+
