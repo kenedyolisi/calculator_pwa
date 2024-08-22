@@ -30,7 +30,7 @@
         case "7":
         case "8":
         case "9":
-          if (input === "0" || /=/.test(input.at(-1))) {
+          if (input === "0" || /([= ]){3}$/.test(input)) {
             input = dataValue;
           } else {
             input += dataValue;
@@ -49,18 +49,22 @@
         case "*":
         case "+":
         case "-":
-          if (/[/*+-]/.test(input.at(-1))) {
-            input = input.slice(0, -1) + dataValue;
-          } else if (/=/.test(input.at(-1)) && result) {
-            input = result + dataValue;
+          // Check if the last input is operator
+          if (/[ \/\*\+\-]{3}$/.test(input)) {
+            input = input.slice(0, -2) + dataValue + " ";
+          } else if (/([= ]){3}$/.test(input) && result) {
+            input = result + " " + dataValue + " ";
           } else {
-            input += dataValue;
+            input += " " + dataValue + " ";
           }
           break;
         // Handle equals
         case "=":
-          input += dataValue;
-          result = evaluate(input.slice(0, -1));
+          if (/([= ]){3}$/.test(input)) {
+            return;
+          }
+          input += " " + dataValue + " ";
+          result = evaluate(input.slice(0, -3));
           $chronicles = [...$chronicles, { expression: input, result }];
           break;
         // Handle clear
