@@ -18,6 +18,8 @@
     "svelte": "5.0.0-next.225"
   },
   "devDependencies": {
+    "@melt-ui/pp": "^0.3.2",
+    "@melt-ui/svelte": "^0.83.0",
     "@typescript-eslint/parser": "^7.18.0",
     "@vite-pwa/astro": "^0.4.0",
     "eslint": "^8.57.0",
