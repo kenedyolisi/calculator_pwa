@@ -1,33 +1,9 @@
 <script lang="ts">
-  import Button from "@components/button.svelte";
   import { evaluate } from "mathjs";
+  import { chronicles } from "src/store";
 
   let input = $state("0");
   let result = $state("");
-
-  const buttons = [
-    { text: "DEL", dataValue: "DEL", label: "delete" },
-    { text: "AC", dataValue: "AC", label: "clear" },
-    { text: "7", dataValue: "7", label: "7" },
-    { text: "8", dataValue: "8", label: "8" },
-    { text: "9", dataValue: "9", label: "9" },
-    { text: "(", dataValue: "(", label: "open bracket" },
-    { text: ")", dataValue: ")", label: "close bracket" },
-    { text: "4", dataValue: "4", label: "4" },
-    { text: "5", dataValue: "5", label: "5" },
-    { text: "6", dataValue: "6", label: "6" },
-    { text: "÷", dataValue: "/", label: "divide by" },
-    { text: "×", dataValue: "*", label: "multiply by" },
-    { text: "1", dataValue: "1", label: "1" },
-    { text: "2", dataValue: "2", label: "2" },
-    { text: "3", dataValue: "3", label: "3" },
-    { text: "+", dataValue: "+", label: "plus" },
-    { text: "-", dataValue: "-", label: "minus" },
-    { text: "±", dataValue: "", label: "negate" },
-    { text: "0", dataValue: "0", label: "0" },
-    { text: ".", dataValue: ".", label: "point" },
-    { text: "=", dataValue: "=", label: "equals" },
-  ];
 
   function handleClick(
     event: MouseEvent & { target: EventTarget & HTMLElement },
@@ -54,7 +30,7 @@
         case "7":
         case "8":
         case "9":
-          if (input === "0") {
+          if (input === "0" || /([= ]){3}$/.test(input)) {
             input = dataValue;
           } else {
             input += dataValue;
@@ -68,15 +44,44 @@
             input += dataValue;
           }
           break;
+        // Handle operators
+        case "/":
+        case "*":
+        case "+":
+        case "-":
+          // Check if the last input is operator
+          if (/[ \/\*\+\-]{3}$/.test(input)) {
+            input = input.slice(0, -2) + dataValue + " ";
+          } else if (/([= ]){3}$/.test(input) && result) {
+            input = result + " " + dataValue + " ";
+          } else {
+            input += " " + dataValue + " ";
+          }
+          break;
         // Handle equals
         case "=":
+          if (/([= ]){3}$/.test(input)) {
+            return;
+          }
           input += " " + dataValue + " ";
           result = evaluate(input.slice(0, -3));
+          $chronicles = [...$chronicles, { expression: input, result }];
           break;
         // Handle clear
         case "AC":
           input = "0";
           result = "";
+          break;
+        // Handle delete
+        case "DEL":
+          if (input === "0") {
+            return;
+          }
+          if (input.length > 1) {
+            input = input.slice(0, -1);
+          } else {
+            input = "0";
+          }
           break;
 
         default:
@@ -107,14 +112,180 @@
   </div>
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <!-- svelte-ignore a11y_no_static_element_interactions -->
-  <div class="grid h-full w-full grid-cols-5 gap-2" onclick={handleClick}>
-    {#each buttons as { dataValue, label, text } (text)}
-      <Button
-        class={`${text === "DEL" ? "col-start-4" : ""} ${text === "=" ? "col-span-2 bg-green-500" : ""}`}
-        {text}
-        {label}
-        {dataValue}
-      />
-    {/each}
+  <div class="grid grow grid-cols-5 gap-2" onclick={handleClick}>
+    <button
+      class="col-start-4 bg-rose-200 hover:bg-rose-300"
+      type="button"
+      data-value="DEL"
+      aria-label="delete"
+    >
+      DEL
+    </button>
+    <button
+      class="bg-rose-200 hover:bg-rose-300"
+      type="button"
+      data-value="AC"
+      aria-label="clear"
+    >
+      AC
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="7"
+      aria-label="7"
+    >
+      7
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="8"
+      aria-label="8"
+    >
+      8
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="9"
+      aria-label="9"
+    >
+      9
+    </button>
+    <button
+      class="bg-slate-200 hover:bg-slate-300"
+      type="button"
+      data-value="("
+      aria-label="open bracket"
+    >
+      (
+    </button>
+    <button
+      class="bg-slate-200 hover:bg-slate-300"
+      type="button"
+      data-value=")"
+      aria-label="close bracket"
+    >
+      )
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="3"
+      aria-label="3"
+    >
+      3
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="4"
+      aria-label="4"
+    >
+      4
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="5"
+      aria-label="5"
+    >
+      5
+    </button>
+    <button
+      class="bg-slate-200 hover:bg-slate-300"
+      type="button"
+      data-value="/"
+      aria-label="divide by"
+    >
+      &div;
+    </button>
+    <button
+      class="bg-slate-200 hover:bg-slate-300"
+      type="button"
+      data-value="*"
+      aria-label="multiply by"
+    >
+      &times;
+    </button>
+    <button
+      class="rounded-md bg-blue-200 hover:bg-blue-300 active:scale-95"
+      type="button"
+      data-value="1"
+      aria-label="1"
+    >
+      1
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="2"
+      aria-label="2"
+    >
+      2
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="3"
+      aria-label="3"
+    >
+      3
+    </button>
+    <button
+      class="bg-slate-200 hover:bg-slate-300"
+      type="button"
+      data-value="+"
+      aria-label="plus"
+    >
+      +
+    </button>
+    <button
+      class="bg-slate-200 hover:bg-slate-300"
+      type="button"
+      data-value="-"
+      aria-label="minus"
+    >
+      -
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="±"
+      aria-label="negate"
+    >
+      ±
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="0"
+      aria-label="0"
+    >
+      0
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="."
+      aria-label="dot"
+    >
+      &dot;
+    </button>
+    <button
+      class="col-span-2 bg-green-200 hover:bg-green-300"
+      type="button"
+      data-value="="
+      aria-label="equals"
+    >
+      =
+    </button>
   </div>
 </div>
+
+<style>
+  button {
+    @apply rounded-lg active:scale-95;
+  }
+</style>

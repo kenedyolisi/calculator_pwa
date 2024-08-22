@@ -1,0 +1,12 @@
+<script lang="ts">
+  import Chronicle from "@components/chronicle.svelte";
+  import { chronicles } from "src/store";
+</script>
+
+<ul class="space-y-1">
+  {#each $chronicles as chronicle, index (index)}
+    <li>
+      <Chronicle {chronicle} />
+    </li>
+  {/each}
+</ul>
