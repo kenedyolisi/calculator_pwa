@@ -1,12 +1,16 @@
 <script lang="ts">
-  import Chronicle from "@components/history_entry.svelte";
-  import { chronicles } from "src/store";
+  import HistoryEntry from "@components/history_entry.svelte";
+  import { historyEntries } from "src/store";
 </script>
 
-<ul class="flex flex-col-reverse gap-1">
-  {#each $chronicles as chronicle, index (index)}
-    <li>
-      <Chronicle {chronicle} />
-    </li>
-  {/each}
-</ul>
+{#if $historyEntries.length}
+  <ul class="flex flex-col-reverse gap-1">
+    {#each $historyEntries as historyEntry, index (index)}
+      <li>
+        <HistoryEntry {historyEntry} />
+      </li>
+    {/each}
+  </ul>
+{:else}
+  <p class="text-center text-sm">There is nothing in history yet</p>
+{/if}
