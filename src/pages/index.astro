@@ -1,40 +1,25 @@
 ---
 import Calculator from "@components/calculator.svelte";
-import Chronicles from "@components/chronicles.svelte";
+import History from "@components/history.svelte";
+import Tooltip from "@components/tooltip.svelte";
 import Layout from "@layouts/base_layout.astro";
 ---
 
 <Layout>
-  <main class="flex h-full gap-2">
-    <div class="w-full p-5">
+  <main class="flex h-screen gap-2">
+    <div class="flex w-full flex-col p-4">
       <div class="flex items-center justify-between px-3 py-1">
         <h1 class="text-2xl font-semibold">Standard</h1>
-        <button class="sm:hidden" type="button">History</button>
+        <Tooltip text="Open history" placement="bottom" client:load>
+          <button class="sm:hidden" type="button">
+            <span class="icon icon-history size-5"></span>
+          </button>
+        </Tooltip>
       </div>
-      <Calculator client:load />
-    </div>
-    <div
-      class="fixed bottom-0 left-0 right-0 hidden h-4/5 w-full flex-col bg-white px-3 py-1 sm:static sm:flex sm:h-full sm:w-2/5"
-    >
-      <div class="w-full">
-        <button>History</button>
-        <button>Memory</button>
-      </div>
-      <div class="grow overflow-auto text-end">
-        <Chronicles client:load />
-      </div>
-      <div class="w-full text-end">
-        <button id="reset-chronicles-button" type="button">Delete</button>
+      <div class="grow">
+        <Calculator client:load />
       </div>
     </div>
+    <History client:load />
   </main>
 </Layout>
-
-<script>
-  import { chronicles } from "src/store";
-
-  const resetButton = document.getElementById("reset-chronicles-button");
-  resetButton?.addEventListener("click", () => {
-    chronicles.set([]);
-  });
-</script>

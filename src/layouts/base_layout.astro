@@ -3,7 +3,7 @@ import "@styles/app.css";
 ---
 
 <!doctype html>
-<html lang="en" dir="ltr">
+<html class="h-full" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,9 +31,9 @@ import "@styles/app.css";
 
     <title>Calculator PWA</title>
   </head>
-  <body class="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
-    <div class="h-screen w-screen">
-      <slot />
-    </div>
+  <body
+    class="h-full bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200"
+  >
+    <slot />
   </body>
 </html>
