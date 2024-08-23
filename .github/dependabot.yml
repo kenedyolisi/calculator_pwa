@@ -5,6 +5,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: tuesday
+      timezone: Africa/Nairobi
     open-pull-requests-limit: 10
 
   - package-ecosystem: "github-actions"
@@ -12,3 +14,4 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      timezone: Africa/Nairobi
