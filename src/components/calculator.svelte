@@ -1,6 +1,6 @@
 <script lang="ts">
   import { evaluate } from "mathjs";
-  import { chronicles } from "src/store";
+  import { historyEntries } from "src/store";
 
   let input = $state("0");
   let result = $state("");
@@ -65,7 +65,7 @@
           }
           input += " " + dataValue + " ";
           result = evaluate(input.slice(0, -3));
-          $chronicles = [...$chronicles, { expression: input, result }];
+          $historyEntries = [...$historyEntries, { expression: input, result }];
           break;
         // Handle clear
         case "AC":
