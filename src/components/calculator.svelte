@@ -86,7 +86,13 @@
             return;
           }
           if (input.length > 1) {
-            input = input.slice(0, -1);
+            if (isOperator(input)) {
+              input = input.slice(0, -3);
+            } else if (isEquals(input)) {
+              input = input.slice(0, -2);
+            } else {
+              input = input.slice(0, -1);
+            }
           } else {
             input = "0";
           }
