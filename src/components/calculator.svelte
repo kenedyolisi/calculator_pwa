@@ -38,7 +38,7 @@
         case "7":
         case "8":
         case "9":
-          if (input === "0" || /([= ]){3}$/.test(input)) {
+          if (input === "0" || isEquals(input)) {
             input = dataValue;
           } else {
             input += dataValue;
