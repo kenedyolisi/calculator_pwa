@@ -71,8 +71,8 @@
           if (isEquals(input)) {
             return;
           }
-          input += " " + dataValue + " ";
-          result = evaluate(input.slice(0, -3));
+          input += " " + dataValue;
+          result = evaluate(input.slice(0, -2));
           $historyEntries = [...$historyEntries, { expression: input, result }];
           break;
         // Handle clear
