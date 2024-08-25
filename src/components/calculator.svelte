@@ -5,6 +5,14 @@
   let input = $state("0");
   let result = $state("");
 
+  function isOperator(input: string) {
+    return /[ \/\*\+\-]{3}$/.test(input);
+  }
+
+  function isEquals(input: string) {
+    return /([= ]){2}$/.test(input);
+  }
+
   function handleClick(
     event: MouseEvent & { target: EventTarget & HTMLElement },
   ) {
@@ -50,9 +58,9 @@
         case "+":
         case "-":
           // Check if the last input is operator
-          if (/[ \/\*\+\-]{3}$/.test(input)) {
+          if (isOperator(input)) {
             input = input.slice(0, -2) + dataValue + " ";
-          } else if (/([= ]){3}$/.test(input) && result) {
+          } else if (isEquals(input) && result) {
             input = result + " " + dataValue + " ";
           } else {
             input += " " + dataValue + " ";
@@ -60,7 +68,7 @@
           break;
         // Handle equals
         case "=":
-          if (/([= ]){3}$/.test(input)) {
+          if (isEquals(input)) {
             return;
           }
           input += " " + dataValue + " ";
