@@ -48,6 +48,8 @@
         case "0":
           if (input === "0") {
             return;
+          } else if (isEquals(input)) {
+            input = dataValue;
           } else {
             input += dataValue;
           }
