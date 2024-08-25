@@ -30,6 +30,22 @@ import "@styles/app.css";
     <link rel="manifest" href="/calculator_pwa/site.webmanifest" />
 
     <title>Calculator PWA</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-5FGWBQK1NV"
+      type="text/partytown"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() {
+        dataLayer.push(arguments);
+      };
+      
+      gtag("js", new Date());
+
+      gtag("config", "G-5FGWBQK1NV");
+    </script>
   </head>
   <body
     class="h-full bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200"
