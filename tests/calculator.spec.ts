@@ -32,7 +32,9 @@ test.describe("Calculator", () => {
     await expect(page.getByLabel("9")).toBeVisible();
   });
 
-  test("digit buttons function correctly when clicked", async ({ page }) => {
+  test("digit buttons enter values into input when clicked", async ({
+    page,
+  }) => {
     const locator = page.locator("#input");
     await page.getByLabel("1").click();
     await page.getByLabel("2").click();
@@ -45,5 +47,18 @@ test.describe("Calculator", () => {
     await page.getByLabel("9").click();
     await page.getByLabel("0").click();
     await expect(locator).toHaveValue("1234567890");
+  });
+
+  test("clear button resets input and result when clicked", async ({
+    page,
+  }) => {
+    const input = page.locator("#input");
+    const clearButton = page.getByLabel("clear");
+    const result = page.locator("#result");
+    await input.fill("123 + 45");
+    await clearButton.click();
+
+    await expect(input).toHaveValue("0");
+    await expect(result).toHaveText("");
   });
 });
