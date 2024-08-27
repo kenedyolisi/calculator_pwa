@@ -75,9 +75,6 @@ importers:
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
-      vite:
-        specifier: ^5.1.7
-        version: 5.4.1(@types/node@22.5.0)(sass@1.77.8)(terser@5.31.6)
 
 packages:
 
