@@ -3,7 +3,7 @@
   import { historyEntries } from "src/store";
 
   let input = $state("0");
-  let result = $state("");
+  let output = $state("");
 
   function isOperator(input: string) {
     return /[ \/\*\+\-]{3}$/.test(input);
@@ -62,8 +62,8 @@
           // Check if the last input is operator
           if (isOperator(input)) {
             input = input.slice(0, -2) + dataValue + " ";
-          } else if (isEquals(input) && result) {
-            input = result + " " + dataValue + " ";
+          } else if (isEquals(input) && output) {
+            input = output + " " + dataValue + " ";
           } else {
             input += " " + dataValue + " ";
           }
@@ -74,13 +74,13 @@
             return;
           }
           input += " " + dataValue;
-          result = evaluate(input.slice(0, -2));
-          $historyEntries = [...$historyEntries, { expression: input, result }];
+          output = evaluate(input.slice(0, -2));
+          $historyEntries = [...$historyEntries, { expression: input, result: output }];
           break;
         // Handle clear
         case "AC":
           input = "0";
-          result = "";
+          output = "";
           break;
         // Handle delete
         case "DEL":
@@ -120,7 +120,7 @@
 
     <!-- Result -->
     <div class="my-1 h-10 px-3 py-1 text-2xl font-medium">
-      {result}
+      {output}
     </div>
   </div>
   <!-- svelte-ignore a11y_click_events_have_key_events -->
