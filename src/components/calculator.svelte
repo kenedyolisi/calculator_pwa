@@ -119,9 +119,9 @@
     />
 
     <!-- Result -->
-    <div class="my-1 h-10 px-3 py-1 text-2xl font-medium">
+    <output class="my-1 h-10 px-3 py-1 text-2xl font-medium" id="result">
       {output}
-    </div>
+    </output>
   </div>
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <!-- svelte-ignore a11y_no_static_element_interactions -->
