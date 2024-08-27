@@ -1,0 +1,5 @@
+# Full syntax: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
+
+# Allow all bots to scan and index site.
+User-agent: *
+Allow: /

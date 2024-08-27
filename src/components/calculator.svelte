@@ -3,7 +3,15 @@
   import { historyEntries } from "src/store";
 
   let input = $state("0");
-  let result = $state("");
+  let output = $state("");
+
+  function isOperator(input: string) {
+    return /[ \/\*\+\-]{3}$/.test(input);
+  }
+
+  function isEquals(input: string) {
+    return /([= ]){2}$/.test(input);
+  }
 
   function handleClick(
     event: MouseEvent & { target: EventTarget & HTMLElement },
@@ -30,7 +38,7 @@
         case "7":
         case "8":
         case "9":
-          if (input === "0" || /([= ]){3}$/.test(input)) {
+          if (input === "0" || isEquals(input)) {
             input = dataValue;
           } else {
             input += dataValue;
@@ -40,6 +48,8 @@
         case "0":
           if (input === "0") {
             return;
+          } else if (isEquals(input)) {
+            input = dataValue;
           } else {
             input += dataValue;
           }
@@ -50,27 +60,27 @@
         case "+":
         case "-":
           // Check if the last input is operator
-          if (/[ \/\*\+\-]{3}$/.test(input)) {
+          if (isOperator(input)) {
             input = input.slice(0, -2) + dataValue + " ";
-          } else if (/([= ]){3}$/.test(input) && result) {
-            input = result + " " + dataValue + " ";
+          } else if (isEquals(input) && output) {
+            input = output + " " + dataValue + " ";
           } else {
             input += " " + dataValue + " ";
           }
           break;
         // Handle equals
         case "=":
-          if (/([= ]){3}$/.test(input)) {
+          if (isEquals(input)) {
             return;
           }
-          input += " " + dataValue + " ";
-          result = evaluate(input.slice(0, -3));
-          $historyEntries = [...$historyEntries, { expression: input, result }];
+          input += " " + dataValue;
+          output = evaluate(input.slice(0, -2));
+          $historyEntries = [...$historyEntries, { expression: input, result: output }];
           break;
         // Handle clear
         case "AC":
           input = "0";
-          result = "";
+          output = "";
           break;
         // Handle delete
         case "DEL":
@@ -78,7 +88,13 @@
             return;
           }
           if (input.length > 1) {
-            input = input.slice(0, -1);
+            if (isOperator(input)) {
+              input = input.slice(0, -3);
+            } else if (isEquals(input)) {
+              input = input.slice(0, -2);
+            } else {
+              input = input.slice(0, -1);
+            }
           } else {
             input = "0";
           }
@@ -103,9 +119,9 @@
     />
 
     <!-- Result -->
-    <div class="my-1 h-10 px-3 py-1 text-2xl font-medium">
-      {result}
-    </div>
+    <output class="my-1 h-10 px-3 py-1 text-2xl font-medium" id="result">
+      {output}
+    </output>
   </div>
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -169,14 +185,6 @@
     <button
       class="bg-blue-200 hover:bg-blue-300"
       type="button"
-      data-value="3"
-      aria-label="3"
-    >
-      3
-    </button>
-    <button
-      class="bg-blue-200 hover:bg-blue-300"
-      type="button"
       data-value="4"
       aria-label="4"
     >
@@ -189,6 +197,14 @@
       aria-label="5"
     >
       5
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="6"
+      aria-label="6"
+    >
+      6
     </button>
     <button
       class="bg-slate-200 hover:bg-slate-300"
