@@ -185,14 +185,6 @@
     <button
       class="bg-blue-200 hover:bg-blue-300"
       type="button"
-      data-value="3"
-      aria-label="3"
-    >
-      3
-    </button>
-    <button
-      class="bg-blue-200 hover:bg-blue-300"
-      type="button"
       data-value="4"
       aria-label="4"
     >
@@ -205,6 +197,14 @@
       aria-label="5"
     >
       5
+    </button>
+    <button
+      class="bg-blue-200 hover:bg-blue-300"
+      type="button"
+      data-value="6"
+      aria-label="6"
+    >
+      6
     </button>
     <button
       class="bg-slate-200 hover:bg-slate-300"
