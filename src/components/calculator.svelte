@@ -54,6 +54,19 @@
             input += dataValue;
           }
           break;
+
+        // Handle point
+        case ".":
+          if (
+            input.match(/([^\/\+\-\*\s])+$/)?.[0].includes(".") ||
+            isEquals(input)
+          ) {
+            return;
+          } else {
+            input += dataValue;
+          }
+          break;
+
         // Handle operators
         case "/":
         case "*":
