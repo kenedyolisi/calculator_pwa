@@ -54,6 +54,28 @@
             input += dataValue;
           }
           break;
+
+        // Handle point
+        case ".":
+          if (
+            input.match(/([^\/\+\-\*\s])+$/)?.[0].includes(".") ||
+            isEquals(input)
+          ) {
+            return;
+          } else {
+            input += dataValue;
+          }
+          break;
+
+        // Handle negation
+        case "±":
+          if (isEquals(input)) {
+            return;
+          } else {
+            input = toggleSign(input) ?? input;
+          }
+          break;
+
         // Handle operators
         case "/":
         case "*":
