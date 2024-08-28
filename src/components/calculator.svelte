@@ -67,6 +67,15 @@
           }
           break;
 
+        // Handle negation
+        case "±":
+          if (isEquals(input)) {
+            return;
+          } else {
+            input = toggleSign(input) ?? input;
+          }
+          break;
+
         // Handle operators
         case "/":
         case "*":
