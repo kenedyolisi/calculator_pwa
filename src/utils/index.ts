@@ -1,3 +1,7 @@
+export function getLastSubstring(input: string) {
+  return input.trim().split(" ").at(-1);
+}
+
 export function toggleSign(input: string) {
   // Remove leading and trailing whitespace from the input
   input = input.trim();
