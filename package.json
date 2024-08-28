@@ -17,7 +17,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.14.5",
     "mathjs": "^12.4.3",
-    "svelte": "5.0.0-next.225"
+    "svelte": "5.0.0-next.240"
   },
   "devDependencies": {
     "@melt-ui/pp": "^0.3.2",
