@@ -1,21 +1,14 @@
 <script lang="ts">
-  import { toggleSign } from "@utils/index";
+  import { getLastSubstring, toggleSign } from "@utils/index";
   import { evaluate } from "mathjs";
   import { historyEntries } from "src/store";
 
   let input = $state("0");
   let output = $state("");
-
-  function isOperator(input: string) {
-    return /[ \/\*\+\-]{3}$/.test(input);
-  }
-
-  function isEquals(input: string) {
-    return /([= ]){2}$/.test(input);
-  }
+  const operators = ["/", "*", "+", "-"];
 
   function handleClick(
-    event: MouseEvent & { target: EventTarget & HTMLElement },
+    event: MouseEvent & { target: EventTarget & HTMLDivElement },
   ) {
     const button: HTMLButtonElement | null = event.target?.closest("button");
 
@@ -39,17 +32,18 @@
         case "7":
         case "8":
         case "9":
-          if (input === "0" || isEquals(input)) {
+          if (input === "0" || getLastSubstring(input) === "=") {
             input = dataValue;
           } else {
             input += dataValue;
           }
           break;
+
         // Handle 0
         case "0":
-          if (input === "0") {
+          if (getLastSubstring(input) === "0") {
             return;
-          } else if (isEquals(input)) {
+          } else if (getLastSubstring(input) === "=") {
             input = dataValue;
           } else {
             input += dataValue;
@@ -58,10 +52,9 @@
 
         // Handle point
         case ".":
-          if (
-            input.match(/([^\/\+\-\*\s])+$/)?.[0].includes(".") ||
-            isEquals(input)
-          ) {
+          const lastPart = getLastSubstring(input);
+
+          if (lastPart?.includes(".") || lastPart === "=") {
             return;
           } else {
             input += dataValue;
@@ -70,7 +63,7 @@
 
         // Handle negation
         case "±":
-          if (isEquals(input)) {
+          if (getLastSubstring(input) === "=") {
             return;
           } else {
             input = toggleSign(input) ?? input;
@@ -82,10 +75,14 @@
         case "*":
         case "+":
         case "-":
-          // Check if the last input is operator
-          if (isOperator(input)) {
-            input = input.slice(0, -2) + dataValue + " ";
-          } else if (isEquals(input) && output) {
+          // Check if the last part is operator
+          if (operators.includes(getLastSubstring(input))) {
+            input = input
+              .trim()
+              .split(" ")
+              .with(-1, dataValue + " ")
+              .join(" ");
+          } else if (getLastSubstring(input) === "=" && output) {
             input = output + " " + dataValue + " ";
           } else {
             input += " " + dataValue + " ";
@@ -97,7 +94,7 @@
         case ")":
           if (input === "0") {
             input = dataValue;
-          } else if (isEquals(input)) {
+          } else if (getLastSubstring(input) === "=") {
             input = output + dataValue;
           } else {
             input += dataValue;
@@ -106,13 +103,17 @@
 
         // Handle equals
         case "=":
-          if (isEquals(input)) {
+          if (getLastSubstring(input) === "=") {
             return;
           }
           input += " " + dataValue;
           output = evaluate(input.slice(0, -2));
-          $historyEntries = [...$historyEntries, { expression: input, result: output }];
+          $historyEntries = [
+            ...$historyEntries,
+            { expression: input, result: output },
+          ];
           break;
+
         // Handle clear
         case "AC":
           input = "0";
@@ -124,13 +125,12 @@
             return;
           }
           if (input.length > 1) {
-            if (isOperator(input)) {
-              input = input.slice(0, -3);
-            } else if (isEquals(input)) {
-              input = input.slice(0, -2);
-            } else {
-              input = input.slice(0, -1);
-            }
+            input = input
+              .trim()
+              .split(" ")
+              .with(-1, getLastSubstring(input)?.slice(0, -1))
+              .join(" ")
+              .trim();
           } else {
             input = "0";
           }
@@ -149,13 +149,19 @@
   <div class="rounded-md bg-white text-end">
     <!-- Input -->
     <input
-      class="my-1 block w-full rounded-t-md px-3 py-1 text-end text-xl focus-within:outline-none"
+      class="my-1 block w-full rounded-t-md px-3 py-2 text-end text-xl focus-within:outline-none"
+      id="input"
       type="text"
+      aria-label="input"
       bind:value={input}
     />
 
     <!-- Result -->
-    <output class="my-1 h-10 px-3 py-1 text-2xl font-medium" id="result">
+    <output
+      class="my-1 h-10 px-3 py-1 text-2xl font-medium"
+      id="output"
+      for="input"
+    >
       {output}
     </output>
   </div>
@@ -318,7 +324,7 @@
       class="bg-blue-200 hover:bg-blue-300"
       type="button"
       data-value="."
-      aria-label="dot"
+      aria-label="point"
     >
       &dot;
     </button>
