@@ -91,6 +91,19 @@
             input += " " + dataValue + " ";
           }
           break;
+
+        // Handle brackets
+        case "(":
+        case ")":
+          if (input === "0") {
+            input = dataValue;
+          } else if (isEquals(input)) {
+            input = output + dataValue;
+          } else {
+            input += dataValue;
+          }
+          break;
+
         // Handle equals
         case "=":
           if (isEquals(input)) {
